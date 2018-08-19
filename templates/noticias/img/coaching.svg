@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1967 8236.001 92 56.453">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #858484;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="_1498033038_simpline_13" data-name="1498033038_simpline_13" transform="translate(-1971 8221.223)">
+    <path id="Path_6" data-name="Path 6" class="cls-1" d="M46.35,25.648c0,5.65-4.6,15.5-10.25,15.5S25.85,31.281,25.85,25.615a10.25,10.25,0,0,1,20.483,0Z" transform="translate(13.9)"/>
+    <path id="Path_7" data-name="Path 7" class="cls-1" d="M19.34,56.74a21.1,21.1,0,1,1,42.2,0" transform="translate(9.56 13.241)"/>
+    <path id="Path_8" data-name="Path 8" class="cls-1" d="M60.423,29.24c0,4.783-3.883,13.333-8.667,13.333S43.09,33.957,43.09,29.24a8.675,8.675,0,1,1,17.35,0Z" transform="translate(25.393 3.191)"/>
+    <path id="Path_9" data-name="Path 9" class="cls-1" d="M41.81,41.348A17.867,17.867,0,0,1,70.46,55.6" transform="translate(24.54 14.633)"/>
+    <path id="Path_10" data-name="Path 10" class="cls-1" d="M10.517,29.24c0,4.783,3.883,13.333,8.667,13.333S27.85,33.957,27.85,29.24a8.675,8.675,0,1,0-17.35,0Z" transform="translate(3.667 3.191)"/>
+    <path id="Path_11" data-name="Path 11" class="cls-1" d="M33.65,41.348A17.867,17.867,0,0,0,5,55.6" transform="translate(0 14.633)"/>
+  </g>
+</svg>
