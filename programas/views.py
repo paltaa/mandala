@@ -8,6 +8,10 @@ from django.template import loader
 def index(request):
     mycontext = {
     'data':'lolo'
-
     }
-    return render(request, 'noticias/index.html', context = mycontext)
+    return render(request, 'programas/index.html', context = mycontext)
+
+def programas(request):
+    mycontext={
+    }
+    return render(request, 'programas/programas.html', context=mycontext)
