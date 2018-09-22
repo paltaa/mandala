@@ -1,6 +1,8 @@
 
 <!DOCTYPE html>
 {% load staticfiles %}
+{% load compress %}
+
 <html lang="es">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;">
@@ -120,85 +122,23 @@
             <p>Generadores de cambio</p>
 
             <ul class="ProgramList">
-                                <li>
-                    <a href="http://mandalaoutdoor.cl/programa/team-building/" title="Integración y Trabajo en Equipo">
-                        <div class="imgEffect" style="background-image: url(http://mandalaoutdoor.cl/wp-content/uploads/2017/08/b258fc_894ab372aab047fe847016060eb0b90c.jpg);">
-
-                        </div>
+              {% block content %}
+              {% for programa in object_list %}
+             <li>
+               <a href="{{programa.id}}" title="{{programa.title}}">
+                    <div class="imgEffect" style="background-image: url('{{programa.img}}'  );">
+                            </div>
                         <div class="layerLists">
-                            <h2>Integración y Trabajo en Equipo</h2>
+                            <h2>{{programa.title}}</h2>
                         </div>
                         <div class="boxTxt">
-                            <p>APRENDE CON NOSOTROS Y CONSTRUYE TU PROPIO EQUIPO</p>
+                            <p>{{programa.short}} </p>
                         </div>
                     </a>
                 </li>
-                                <li>
-                    <a href="http://mandalaoutdoor.cl/programa/comunicacion/" title="Técnicas de Comunicación y Habilidades personales">
-                        <div class="imgEffect" style="background-image: url(http://mandalaoutdoor.cl/wp-content/uploads/2017/08/DSC_0067.jpg);">
-
-                        </div>
-                        <div class="layerLists">
-                            <h2>Técnicas de Comunicación y Habilidades personales</h2>
-                        </div>
-                        <div class="boxTxt">
-                            <p>COMUNICAR NO ES SOLO HABLAR...</p>
-                        </div>
-                    </a>
-                </li>
-                                <li>
-                    <a href="http://mandalaoutdoor.cl/programa/liderazgo/" title="Competencias para el Liderazgo">
-                        <div class="imgEffect" style="background-image: url(http://mandalaoutdoor.cl/wp-content/uploads/2017/08/10454463_244997475690864_7063995187305814470_n.jpg);">
-
-                        </div>
-                        <div class="layerLists">
-                            <h2>Competencias para el Liderazgo</h2>
-                        </div>
-                        <div class="boxTxt">
-                            <p>LIDERAR ES UN ARTE</p>
-                        </div>
-                    </a>
-                </li>
-                                <li>
-                    <a href="http://mandalaoutdoor.cl/programa/autocuidado/" title="Competencias para el Autocuidado">
-                        <div class="imgEffect" style="background-image: url(http://mandalaoutdoor.cl/wp-content/uploads/2017/08/servicios-a-empresas-saludables-servicio-de-yoga.jpg);">
-
-                        </div>
-                        <div class="layerLists">
-                            <h2>Competencias para el Autocuidado</h2>
-                        </div>
-                        <div class="boxTxt">
-                            <p>LAS PRÁCTICAS CAMBIAN LAS CREENCIAS...</p>
-                        </div>
-                    </a>
-                </li>
-                                <li>
-                    <a href="http://mandalaoutdoor.cl/programa/integracion/" title="Actividades Recreativas, de Integración y Entretención">
-                        <div class="imgEffect" style="background-image: url(http://mandalaoutdoor.cl/wp-content/uploads/2017/08/soca-rafting-slovenia-bovec.jpg);">
-
-                        </div>
-                        <div class="layerLists">
-                            <h2>Actividades Recreativas, de Integración y Entretención</h2>
-                        </div>
-                        <div class="boxTxt">
-                            <p>¡GENERA LAZOS FUERTES CON TU EQUIPO!</p>
-                        </div>
-                    </a>
-                </li>
-                                <li>
-                    <a href="http://mandalaoutdoor.cl/programa/alineamiento/" title="Alineamiento Coorporativo">
-                        <div class="imgEffect" style="background-image: url(http://mandalaoutdoor.cl/wp-content/uploads/2017/08/solidaridad.jpg);">
-
-                        </div>
-                        <div class="layerLists">
-                            <h2>Alineamiento Coorporativo</h2>
-                        </div>
-                        <div class="boxTxt">
-                            <p>¡REENCANTATE CON LO QUE HACES!</p>
-                        </div>
-                    </a>
-                </li>
-                            </ul>
+  {% endfor %}
+  {% endblock %}
+              </ul>
             <a href="http://mandalaoutdoor.cl/programas" title="Programas" class="btn btn-secundary">Más programas</a>
         </div>
     </section>
