@@ -126,11 +126,12 @@ COMPRESS_ENABLED = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_DIRS= 'static'
+STATIC_DIRS= 'static'
 STATIC_ROOT = 'static'
-MEDIA_ROOT = 'media'
-MEDIA_URL = '/media/'
 STATICFILES_DIRS = [
 #STATIC_DIRS,
 
 ]
+
+MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
+MEDIA_URL="/media/"

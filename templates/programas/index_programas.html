@@ -1,80 +1,9 @@
 
 <!DOCTYPE html>
 {% load staticfiles %}
-{% load compress %}
-
 <html lang="es">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;">
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="">
-    <meta property="og:description" content="">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="">
-    <meta property="og:url" content="http://mandalaconsulting.cl/">
-    <meta property="og:locale" content="es_ES">
-    <meta name="twitter:card" value="summary" />
-    <meta name="twitter:url" value="http://mandalaconsulting.cl/">
-    <meta name="twitter:title" value="">
-    <meta name="twitter:description" value="">
-    <meta name="twitter:image" value="" />
-    <title> Mandala Consulting</title>
-    <link rel="shortcut icon" href="http://mandalaoutdoor.cl/wp-content/themes/mandala/favicon.png">
-    <link rel="stylesheet" media="all" href="{% static '/style.css' %}">
-    <link rel="stylesheet" media="all" href="{% static '/css/layout.css' %}">
-    <link rel="stylesheet" media="all" href="{% static '/css/swiper.css' %}">
-    <script src="{% static '/js/html5.js' %}"></script>
-    <script src="{% static '/js/jquery-1.10.1.min.js' %}"></script>
-    <script src="{% static '/js/swiper.min.js' %}"></script>
-    <script src="{% static '/js/global.js' %}"></script>
-	  <script src="{% static '/js/instafeed.js' %}"></script>
-</head>
-<body>
-<header class="container inside">
-<!--<header class="container home">-->
-   <div class="wrap">
-        <!--
-        <a href="http://mandalaoutdoor.cl/" title="" class="logo logoInside"><img src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/logo.svg" alt=""></a>
-        -->
-
-        <a href="http://mandalaoutdoor.cl/" title="" class="logo"><img src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/Webp.net-resizeimage.png" alt=""></a>
-        <nav>
-            <ul class="menu">
-<li><a href="http://mandalaoutdoor.cl/programas" title="Programas" >PROGRAMAS</a></li>
-<li><a href="http://mandalaoutdoor.cl/talleres-y-liderazgo" title="Clientes" >CLIENTES</a></li>
-<li><a href="http://mandalaoutdoor.cl/quienes-somos" title="Quienes Somos" >QUIENES SOMOS</a></li>
-<li><a href="http://mandalaoutdoor.cl/contacto" title="Contacto" >CONTACTO</a></li>
-</ul>
-            <ul class="social">
-<li><a href="#" title="Facebook" target="_blank"><img src="{% static '/img/fb.svg' %}" alt=""></a></li>
-<li><a href="#" title="Instagram" target="_blank"><img src="{% static '/img/inst.svg' %}" alt=""></a></li>
-<li><a href="#" title="Twitter" target="_blank"><img src="{% static '/img/tw.svg' %}" alt=""></a></li>            </ul>
-        </nav>
-        <div class="btnMobile">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <div class="menuMobile">
-<ul class="menu">
-  <li><a href="http://mandalaoutdoor.cl/programas" title="Programas" >PROGRAMAS</a></li>
-  <li><a href="http://mandalaoutdoor.cl/talleres-y-liderazgo" title="Clientes" >CLIENTES</a></li>
-  <li><a href="http://mandalaoutdoor.cl/quienes-somos" title="Quienes Somos" >QUIENES SOMOS</a></li>
-  <li><a href="http://mandalaoutdoor.cl/contacto" title="Contacto" >CONTACTO</a></li>
-</ul>
-
-            <ul class="social">
-                <li><a href="#" title="Facebook" target="_blank"><img src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/fbB.svg" alt=""></a></li>
-                <li><a href="#" title="Instagram" target="_blank"><img src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/instB.svg" alt=""></a></li>
-                <li><a href="#" title="Twitter" target="_blank"><img src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/twB.svg" alt=""></a></li>
-            </ul>
-        </div>
-        </div>
-</header><main>
+{% include 'programas/header.html' %}
+<main>
     <section class="container Single" id="home"  style="background-image: url(http://mandalaoutdoor.cl/wp-content/uploads/2017/08/Parque-Glaciar-el-Morado..jpg);">
         <div class="layer"></div>
         <h2 style="position: absolute;">¡Sé la mejor versión de Ti mismo!</h2>
@@ -96,9 +25,9 @@
 
                 <li>
                     <img src="http://mandalaoutdoor.cl/wp-content/uploads/2017/12/teamwork.svg" alt=""/>
-                    <h2><a href="http://mandalaoutdoor.cl/categorias/coaching-empresarial/" title="Coaching empresarial">Coaching empresarial</a></h2>
+                    <h2><a href="{% url 'coaching_empresarial' %}" title="Coaching empresarial">Coaching empresarial</a></h2>
                     <p>Toma el control... </p>
-                    <a href="http://mandalaoutdoor.cl/categorias/coaching-empresarial/" title="Coaching empresarial" class="btn btn-primary">Ver más</a>
+                    <a href="{% url 'coaching_empresarial' %}" title="Coaching empresarial" class="btn btn-primary">Ver más</a>
                 </li>
                                 <li>
                     <img src="http://mandalaoutdoor.cl/wp-content/uploads/2017/12/leadership.svg" alt=""/>
@@ -123,13 +52,15 @@
 
             <ul class="ProgramList">
               {% block content %}
+
               {% for programa in object_list %}
+
              <li>
                <a href="{{programa.id}}" title="{{programa.title}}">
-                    <div class="imgEffect" style="background-image: url('{{programa.img}}'  );">
-                            </div>
+                    <div class="imgEffect" style="background-image: url('{{programa.img.url}}'  );">
+                        </div>
                         <div class="layerLists">
-                            <h2>{{programa.title}}</h2>
+                          <h2>{{programa.title}}</h2>
                         </div>
                         <div class="boxTxt">
                             <p>{{programa.short}} </p>
@@ -137,6 +68,7 @@
                     </a>
                 </li>
   {% endfor %}
+
   {% endblock %}
               </ul>
             <a href="http://mandalaoutdoor.cl/programas" title="Programas" class="btn btn-secundary">Más programas</a>
@@ -189,22 +121,7 @@
 	instagram('#instafeed','mandalaoutdoor',6,'');
 </script>
 
-<footer class="container" style="background-image: url(http://mandalaoutdoor.cl/wp-content/uploads/2017/08/backFooter.jpg);">
-    <div class="layer"></div>
-    <div class="boxFooter">
-        <a href="http://mandalaoutdoor.cl/" title="" class="logoText"><img src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/logoTexto.svg" alt=""></a>
-        <ul class="social">
-            <li><a href="#" title="" target="_blank"><img src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/fb.svg" alt=""></a></li>
-            <li><a href="#" title="" target="_blank"><img src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/inst.svg" alt=""></a></li>
-            <li><a href="#" title="" target="_blank"><img src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/tw.svg" alt=""></a></li>
-        </ul>
-        <h4>Santuario del Río</h4>
-        <a href="#" title="" target="_blank">
-            <p>Camino al Volcán 37.659, San Alfonso.</p>
-            <p>Cajón del Maipo, Chile.</p>
-        </a>
-    </div>
-    <img class="backTopGrey" src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/backTopGrey.svg">
-</footer>
+
+{% include 'programas/footer.html' %}
 </body>
 </html>
