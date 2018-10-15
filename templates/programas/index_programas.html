@@ -4,7 +4,7 @@
 <html lang="es">
 {% include 'programas/header.html' %}
 <main>
-    <section class="container Single" id="home"  style="background-image: url(http://mandalaoutdoor.cl/wp-content/uploads/2017/08/Parque-Glaciar-el-Morado..jpg);">
+    <section class="container Single" id="home"  style="background-image: url({% static '/assets/Parque-Glaciar-el-Morado.jpg' %});">
         <div class="layer"></div>
         <h2 style="position: absolute;">¡Sé la mejor versión de Ti mismo!</h2>
         <a href="#listadoSecciones" title="Conoce nuestros Programas" class="btn btn-third scrollTo">Conoce nuestros Programas</a>
@@ -24,26 +24,26 @@
             <ul class="listSection">
 
                 <li>
-                    <img src="http://mandalaoutdoor.cl/wp-content/uploads/2017/12/teamwork.svg" alt=""/>
+                    <img src="{% static '/img/teamwork.svg' %}" alt=""/>
                     <h2><a href="{% url 'coaching_empresarial' %}" title="Coaching empresarial">Coaching empresarial</a></h2>
                     <p>Toma el control... </p>
                     <a href="{% url 'coaching_empresarial' %}" title="Coaching empresarial" class="btn btn-primary">Ver más</a>
                 </li>
                                 <li>
-                    <img src="http://mandalaoutdoor.cl/wp-content/uploads/2017/12/leadership.svg" alt=""/>
-                    <h2><a href="http://mandalaoutdoor.cl/categorias/desarrollo-organizacional/" title="Desarrollo organizacional">Desarrollo organizacional</a></h2>
+                    <img src="{% static '/img/leadership.svg' %}" alt=""/>
+                    <h2><a href="{% url 'desarrollo_organizacional' %}" title="Desarrollo organizacional">Desarrollo organizacional</a></h2>
                     <p>Comparte, Imagina, Comunica</p>
-                    <a href="http://mandalaoutdoor.cl/categorias/desarrollo-organizacional/" title="Desarrollo organizacional" class="btn btn-primary">Ver más</a>
+                    <a href="{% url 'desarrollo_organizacional' %}
+                    " title="Desarrollo organizacional" class="btn btn-primary">Ver más</a>
                 </li>
                                 <li>
-                    <img src="http://mandalaoutdoor.cl/wp-content/uploads/2017/12/yoga.svg" alt=""/>
-                    <h2><a href="http://mandalaoutdoor.cl/categorias/salud-empresarial/" title="Salud empresarial">Salud empresarial</a></h2>
+                    <img src="{% static '/img/yoga.svg' %}" alt=""/>
+                    <h2><a href="{% url 'salud_empresarial' %}" title="Salud empresarial">Salud empresarial</a></h2>
                     <p>Vuelve a Conectarte</p>
-                    <a href="http://mandalaoutdoor.cl/categorias/salud-empresarial/" title="Salud empresarial" class="btn btn-primary">Ver más</a>
+                    <a href="{% url 'salud_empresarial' %}" title="Salud empresarial" class="btn btn-primary">Ver más</a>
                 </li>
                             </ul>
         </div>
-        <img class="backBottomGrey" src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/backBottomGrey.svg">
     </section>
     <section class="container" id="programas">
        <div class="wrap">
@@ -51,9 +51,8 @@
             <p>Generadores de cambio</p>
 
             <ul class="ProgramList">
-              {% block content %}
 
-              {% for programa in object_list %}
+{% for programa in object_list %}
 
              <li>
                <a href="{{programa.id}}" title="{{programa.title}}">
@@ -69,9 +68,8 @@
                 </li>
   {% endfor %}
 
-  {% endblock %}
               </ul>
-            <a href="http://mandalaoutdoor.cl/programas" title="Programas" class="btn btn-secundary">Más programas</a>
+            <a href="{% url  'programas_todos' %}" title="Programas" class="btn btn-secundary">Más programas</a>
         </div>
     </section>
 

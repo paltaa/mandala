@@ -1,0 +1,46 @@
+{% include 'programas/header.html' %}
+{% load staticfiles %}
+<section class="container Single" id="home" style="background-image: url({% static 'assets/backFooter.jpg' %});">
+        <div class="layer"></div>
+        <h2>Comparte, Imagina, Comunica</h2>
+        <img class="backBottomHome"  src="{% static '/img/backBottomHome.svg' %}">
+    </section>
+    <section class="container" id="descripcion">
+        <div class="wrap">
+            <h1>Desarrollo organizacional</h1>
+            <div class="wysiwyg">
+                <p>Se entiende como <span style="color: #008000;">Desarrollo Organizacional</span> a un conjunto de herramientas que generan <span style="color: #008000;">cambios y lazos</span> importantes dentro de una empresa, en esta ocasión se trabaja desde la mirada del <span style="color: #008000;">Empresario</span> para y con sus colaboradores.</p>
+<p>Dirigido a <span style="color: #008000;">Lideres, Gerentes, Dueños y Emprendedores</span>, ya que se potencian habilidades especificas para cada empresa y su empresario. Además, se busca fortalecer la <span style="color: #008000;">visión y misión</span>, y sin duda generar capacidades que brinden la seguridad necesaria para el logro de sus <span style="color: #008000;">objetivos</span>.</p>
+<p>Nuestros programas se ajustan a la necesidad, es por ello que pueden ser desde una intervención de una jornada completa hasta un seguimiento anual. <span style="color: #008000;">Contactanos</span>.</p>
+<p><span style="color: #008000;">¡Sé una mejor versión de ti mismo!</span></p>
+            </div>
+        </div>
+    </section>
+<section class="container categorias pWhite" id="programas">
+
+       <div class="wrap">
+
+            <ul class="ProgramList">
+              {% for programa in object_list %}
+              {% if programa.desarrollo %}
+
+                           <li>
+                             <a href="{{programa.id}}" title="{{programa.title}}">
+                                  <div class="imgEffect" style="background-image: url('{{programa.img.url}}'  );">
+                                      </div>
+                                      <div class="layerLists">
+                                        <h2>{{programa.title}}</h2>
+                                      </div>
+                                      <div class="boxTxt">
+                                          <p>{{programa.short}} </p>
+                                      </div>
+                                  </a>
+                              </li>
+                              {% endif %}
+                {% endfor %}
+
+                            </ul>
+                      </div>
+
+</section>
+{% include 'programas/footer.html' %}

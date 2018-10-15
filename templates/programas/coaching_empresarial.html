@@ -18,6 +18,33 @@
          </div>
      </div>
  </section>
+ <section class="container categorias pWhite" id="programas">
 
+        <div class="wrap">
+
+             <ul class="ProgramList">
+               {% for programa in object_list %}
+               {% if programa.coaching %}
+
+                            <li>
+                              <a href="{{programa.id}}" title="{{programa.title}}">
+                                   <div class="imgEffect" style="background-image: url('{{programa.img.url}}'  );">
+                                       </div>
+                                       <div class="layerLists">
+                                         <h2>{{programa.title}}</h2>
+                                       </div>
+                                       <div class="boxTxt">
+                                           <p>{{programa.short}} </p>
+                                       </div>
+                                   </a>
+                               </li>
+                               {% endif %}
+
+                 {% endfor %}
+
+                             </ul>
+                       </div>
+
+ </section>
 
 {% include 'programas/footer.html' %}

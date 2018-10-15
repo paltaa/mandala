@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import Programa
 
+#from functions import mostrarPrograma
 # Create your views here.
 
 def index(request):
@@ -20,16 +21,3 @@ def programa_individual(request):
     programa= Programa.objects.get(id__exact=id)
 
     return render(request, 'programas/child_programas.html', context=mycontext)
-
-
-def coaching_empresarial(request):
-
-    return render(request, 'programas/coaching_empresarial.html')
-
-def desarrollo_organizacional(request):
-
-    return render(request, 'programas/desarrollo_organizacional.html')
-
-def salud_empresarial(request):
-
-    return render(request, 'programas/salud_empresarial.html')

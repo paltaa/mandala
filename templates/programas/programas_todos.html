@@ -1,7 +1,7 @@
 {% include 'programas/header.html' %}
+{% load staticfiles %}
 
-
-<section class="container Single" id="home"  style="background-image: url(http://mandalaoutdoor.cl/wp-content/uploads/2017/08/spirit.jpg);">
+<section class="container Single" id="home"  style="background-image: url({% static '/assets/spirit.jpg' %});">
     <div class="layer"></div>
     <h2 style="position: absolute;">¡Sé la mejor versión de Ti mismo!</h2>
 </section>
@@ -16,15 +16,15 @@
 <p><span style="color: #008000;">Adelante&#8230;</span></p>
         </div>
     </div>
-    <img class="backBottomGrey"  src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/backBottomGrey.svg">
+    <img class="backBottomGrey"  src="{% static '/img/backBottomGrey.svg' %}">
 </section>
-
+</section>
 
 <section class="container programs " id="programas" >
                 <div class="wrap">
 <div class="descriptionPrograms">
               <div class="colLeft">
-                   <img src="http://mandalaoutdoor.cl/wp-content/uploads/2017/12/teamwork.svg" alt="Outdoor" class="ImgTitlePrograms">
+                   <img src="{% static '/img/teamwork.svg' %} " alt="Outdoor" class="ImgTitlePrograms">
                    <h3>Coaching empresarial</h3>
                    <p>Toma el control... </p>
                </div>
@@ -35,15 +35,43 @@
 <p>&nbsp;</p>
                </div>
            </div>
+</section>
+</div>
 
-## ACA TENGO Q PONER LOS PROGRAMAS DE COACHING EMPRESARIAL
+</section>
+
+<section class="container categorias pWhite" id="programas">
+
+       <div class="wrap">
+
+            <ul class="ProgramList">
+              <div class="wrap">
+{% for programa in object_list %}
+{% if programa.coaching %}
+                           <li>
+                             <a href="{{programa.id}}" title="{{programa.title}}">
+                                  <div class="imgEffect" style="background-image: url('{{programa.img.url}}'  );">
+                                      </div>
+                                      <div class="layerLists">
+                                        <h2>{{programa.title}}</h2>
+                                      </div>
+                                      <div class="boxTxt">
+                                          <p>{{programa.short}} </p>
+                                      </div>
+                                  </a>
+                              </li>
+{% endif %}
+{% endfor %}
+
+                            </ul>
+                      </div>
 
 </section>
 <section class="container programs pWhite" id="programas" style="padding-top: 24vh !important;">
- <img class="backTopGrey"  src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/backTopGrey.svg">        <div class="wrap">
+  <div class="wrap">
      <div class="descriptionPrograms">
         <div class="colLeft">
-             <img src="http://mandalaoutdoor.cl/wp-content/uploads/2017/12/leadership.svg" alt="Outdoor" class="ImgTitlePrograms">
+             <img src="{% static '/img/leadership.svg' %}" alt="Outdoor" class="ImgTitlePrograms">
              <h3>Desarrollo organizacional</h3>
              <p>Comparte, Imagina, Comunica</p>
          </div>
@@ -52,16 +80,37 @@
 <p>Dirigido a <span style="color: #008000;">Lideres, Gerentes, Dueños y Emprendedores</span>, ya que se potencian habilidades especificas para cada empresa y su empresario. Además, se busca fortalecer la <span style="color: #008000;">visión y misión</span>, y sin duda generar capacidades que brinden la seguridad necesaria para el logro de sus <span style="color: #008000;">objetivos</span>.</p>
 <p>Nuestros programas se ajustan a la necesidad, es por ello que pueden ser desde una intervención de una jornada completa hasta un seguimiento anual. <span style="color: #008000;">Contactanos</span>.</p>
 <p><span style="color: #008000;">¡Sé una mejor versión de ti mismo!</span></p>
-         </div>
-     </div>
+</section>
+     <section class="container categorias pWhite" id="programas">
 
-     ## ACA TENGO Q PONER LOS PROGRAMAS DE DESARROLLO ORGANIZACIONAL
+            <div class="wrap">
+
+                 <ul class="ProgramList">
+                   {% for programa in object_list %}
+                   {% if programa.desarrollo %}
+                                <li>
+                                  <a href="{{programa.id}}" title="{{programa.title}}">
+                                       <div class="imgEffect" style="background-image: url('{{programa.img.url}}'  );">
+                                           </div>
+                                           <div class="layerLists">
+                                             <h2>{{programa.title}}</h2>
+                                           </div>
+                                           <div class="boxTxt">
+                                               <p>{{programa.short}} </p>
+                                           </div>
+                                       </a>
+                                   </li>
+     {% endif %}
+     {% endfor %}
+
+                                 </ul>
+                           </div>
      </section>
      <section class="container programs " id="programas" >
              <div class="wrap">
          <div class="descriptionPrograms">
             <div class="colLeft">
-                 <img src="http://mandalaoutdoor.cl/wp-content/uploads/2017/12/yoga.svg" alt="Outdoor" class="ImgTitlePrograms">
+                 <img src="{% static '/img/yoga.svg' %}" alt="Outdoor" class="ImgTitlePrograms">
                  <h3>Salud empresarial</h3>
                  <p>Vuelve a Conectarte</p>
              </div>
@@ -74,7 +123,30 @@
 <p>&nbsp;</p>
              </div>
          </div>
-###ACA PONER LOS PROGRAMAS DE SALUD EMPRESARIAL
+</section>
+<section class="container categorias pWhite" id="programas">
+
+       <div class="wrap">
+
+            <ul class="ProgramList">
+              {% for programa in object_list %}
+              {% if programa.salud %}
+                           <li>
+                             <a href="{{programa.id}}" title="{{programa.title}}">
+                                  <div class="imgEffect" style="background-image: url('{{programa.img.url}}'  );">
+                                      </div>
+                                      <div class="layerLists">
+                                        <h2>{{programa.title}}</h2>
+                                      </div>
+                                      <div class="boxTxt">
+                                          <p>{{programa.short}} </p>
+                                      </div>
+                                  </a>
+                              </li>
+{% endif %}
+{% endfor %}
+
+                            </ul>
+                      </div>
 </section>
 {% include 'programas/footer.html' %}
-</body>

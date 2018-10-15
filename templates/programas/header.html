@@ -36,10 +36,10 @@
 <header class="container inside">
 <!--<header class="container inside">-->
    <div class="wrap">
-     <a href="http://mandalaoutdoor.cl/" title="" class="logo"><img src="http://mandalaoutdoor.cl/wp-content/themes/mandala/img/Webp.net-resizeimage.png" alt=""></a>
+     <a href="{% url 'home' %}" title="" class="logo"><img src="{% static '/img/logo.png' %}" alt=""></a>
      <nav>
          <ul class="menu">
-<li><a href='{% url 'programas_todos' %}' title="Programas" >PROGRAMAS</a></li>
+<li><a href="{% url 'programas_todos' %}" title="Programas" >PROGRAMAS</a></li>
 <li><a href="http://mandalaoutdoor.cl/talleres-y-liderazgo" title="Clientes" >CLIENTES</a></li>
 <li><a href="http://mandalaoutdoor.cl/quienes-somos" title="Quienes Somos" >QUIENES SOMOS</a></li>
 <li><a href="http://mandalaoutdoor.cl/contacto" title="Contacto" >CONTACTO</a></li>
