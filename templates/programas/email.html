@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 {% load staticfiles %}
 {% include 'programas/header.html' %}
-
-<h1>Contact Us</h1>
 <section class="container" id="desafio" style="background-image: url(http://mandalaoutdoor.cl/wp-content/themes/mandala/img/pines.png);">
     <div class="wrap">
         <h3>Comienza tu desafío</h3>
@@ -10,19 +8,21 @@
 
         <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
-    <div class="line">
-        <input type="text" name="from_subject" placeholder="Motivo">
-    </div>
-    <div class="line">
-        <input type="email" name="from_email" placeholder="Email">
-    </div>
-    <div class="line">
-        <textarea name="message" placeholder="Mensaje"></textarea>
-    </div>
-
-    <div class="form-actions">
-      <button type="submit">Enviar</button>
+    {% for field in form %}
+        <div class="line">
+           <div class="col-md-2">
+            {{ field.label_tag }}
+            {% if field.help_text %}
+              <sup>{{ field.help_text }}</sup>
+            {% endif %}
+            {{ field.errors }}
+           </div><div class="col-md-10 pull-left">
+             {{ field }}
+           </div>
+        </div>
+     {% endfor %}
+      <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </form>
 </div>

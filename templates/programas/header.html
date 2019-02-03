@@ -39,10 +39,9 @@
      <a href="{% url 'home' %}" title="" class="logo"><img src="{% static '/img/logo.png' %}" alt=""></a>
      <nav>
          <ul class="menu">
+<li><a href="{% url 'home' %}" title="Home" >HOME</a></li>
 <li><a href="{% url 'programas_todos' %}" title="Programas" >PROGRAMAS</a></li>
-<li><a href="http://mandalaoutdoor.cl/talleres-y-liderazgo" title="Clientes" >CLIENTES</a></li>
-<li><a href="http://mandalaoutdoor.cl/quienes-somos" title="Quienes Somos" >QUIENES SOMOS</a></li>
-<li><a href="http://mandalaoutdoor.cl/contacto" title="Contacto" >CONTACTO</a></li>
+<li><a href="{% url 'email' %}" title="Contacto" >CONTACTO</a></li>
 </ul>
          <ul class="social">
 <li><a href="#" title="Facebook" target="_blank"><img src="{% static '/img/fb.svg' %}" alt=""></a></li>
@@ -56,10 +55,9 @@
      </div>
      <div class="menuMobile">
 <ul class="menu">
+<li><a href="{% url 'home' %}" title="Home" >HOME</a></li>
 <li><a href="{% url 'programas_todos' %}" title="Programas" >PROGRAMAS</a></li>
-<li><a href="http://mandalaoutdoor.cl/talleres-y-liderazgo" title="Clientes" >CLIENTES</a></li>
-<li><a href="http://mandalaoutdoor.cl/quienes-somos" title="Quienes Somos" >QUIENES SOMOS</a></li>
-<li><a href="http://mandalaoutdoor.cl/contacto" title="Contacto" >CONTACTO</a></li>
+<li><a href="{% url 'email' %}" title="Contacto" >CONTACTO</a></li>
 </ul>
 <ul class="social">
 <li><a href="#" title="Facebook" target="_blank"><img src="{% static '/img/fb.svg' %}" alt=""></a></li>
