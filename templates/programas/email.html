@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% include 'programas/header.html' %}
+
+<h1>Contact Us</h1>
+<section class="container" id="desafio" style="background-image: url(http://mandalaoutdoor.cl/wp-content/themes/mandala/img/pines.png);">
+    <div class="wrap">
+        <h3>Comienza tu desafío</h3>
+        <p>¿Quieres más información? O requieres un servicio que se ajuste a tus necesidades, no dudes en contactarnos.</p>
+
+        <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="line">
+        <input type="text" name="from_subject" placeholder="Motivo">
+    </div>
+    <div class="line">
+        <input type="email" name="from_email" placeholder="Email">
+    </div>
+    <div class="line">
+        <textarea name="message" placeholder="Mensaje"></textarea>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit">Enviar</button>
+    </div>
+</form>
+</div>
+</section>
+{% include 'programas/footer.html' %}

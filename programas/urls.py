@@ -3,6 +3,7 @@ from django.urls import re_path
 from django.views.generic import DetailView, ListView
 from programas.models import Programa
 from . import views
+from .views import emailView, successView
 
 urlpatterns=[
     path('',
@@ -33,4 +34,6 @@ urlpatterns=[
     ListView.as_view(queryset=Programa.objects.all().order_by("-title"),
     template_name='programas/salud_empresarial.html'),
     name="salud_empresarial"),
+    path('email/', emailView, name='email'),
+    path('success/', successView, name='success'),
     ]
