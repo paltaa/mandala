@@ -1,3 +1,4 @@
+import dj_database_url
 """
 Django settings for mandala project.
 
@@ -78,8 +79,8 @@ WSGI_APPLICATION = 'mandala.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.path.join(BASE_DIR, 'db.postgresql'),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -127,17 +128,16 @@ COMPRESS_ENABLED = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_DIRS= 'static'
+STATIC_DIRS = 'static'
 STATIC_ROOT = 'static'
 STATICFILES_DIRS = [
-#STATIC_DIRS,
+    # STATIC_DIRS,
 
 ]
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
-MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
-MEDIA_URL="/media/"
-import dj_database_url
-prod_db  =  dj_database_url.config(conn_max_age=500)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = "/media/"
+prod_db = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
