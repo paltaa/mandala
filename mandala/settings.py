@@ -26,7 +26,7 @@ SECRET_KEY = '7%sy8c)0m4#z13abo39(yac9=1)fz&9#_j^2p%gcs*yn6p&ez#'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mandalaconsultingapp.herokuapp.com']
+ALLOWED_HOSTS = ['mandalaconsultingapp.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -120,7 +120,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     # other finders..
-    'compressor.finders.CompressorFinder',
+    # 'compressor.finders.CompressorFinder',
 )
 COMPRESS_ENABLED = True
 
