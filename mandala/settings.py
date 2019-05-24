@@ -1,3 +1,4 @@
+import django_heroku
 import dj_database_url
 """
 Django settings for mandala project.
@@ -120,7 +121,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     # other finders..
-    # 'compressor.finders.CompressorFinder',
 )
 COMPRESS_ENABLED = True
 
@@ -129,11 +129,12 @@ COMPRESS_ENABLED = True
 
 STATIC_URL = '/static/'
 STATIC_DIRS = 'static'
-STATIC_ROOT = 'static'
-STATICFILES_DIRS = [
-    # STATIC_DIRS,
+SITE_ROOT = ''  # os.path.dirname(os.path.realpath(__file__))
+STATIC_ROOT = ''
+STATICFILES_DIRS = (
+    os.path.join(SITE_ROOT, 'static/'),
+)
 
-]
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
@@ -141,3 +142,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = "/media/"
 prod_db = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
+django_heroku.settings(locals())
